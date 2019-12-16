@@ -1,6 +1,6 @@
 package classifier;
 
-import java.util.Collections;
+import classifier.classification.provider.ClassificationProvidersProvider;
 
 public class ClassifierBuilder {
 
@@ -20,7 +20,7 @@ public class ClassifierBuilder {
 
     public Classifier buildClassifier(){
         if(classifierConfig == null){
-            classifierConfig = new ClassifierConfigImpl(Collections.emptyList());
+            classifierConfig = new ClassifierConfig(ClassificationProvidersProvider.getClassificationProviders());
         }
         Classifier classifier = new ClassifierImpl(classifierConfig);
         return classifier;
